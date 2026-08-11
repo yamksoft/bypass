@@ -84,12 +84,8 @@
             max-height: 40px;
             width: auto;
         }
-        .top-bar .logo-area .site-name {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-        }
+        /* تم إزالة .site-name بالكامل */
+
         .top-bar .controls {
             display: flex;
             align-items: center;
@@ -239,19 +235,21 @@
             border-color: var(--text-link);
         }
 
-        .footer-note {
+        /* ===== التذييل الجديد (حقوق الطبع والنشر) ===== */
+        .footer-copyright {
             margin-top: 30px;
-            font-size: 13px;
-            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
             text-align: center;
             border-top: 1px solid var(--border-light);
             padding-top: 18px;
+            letter-spacing: 0.5px;
         }
 
         /* ===== التجاوب مع الجوال ===== */
         @media (max-width: 480px) {
             .container { padding: 12px 12px 20px; }
-            .top-bar .logo-area .site-name { font-size: 17px; }
             .top-bar .controls button { padding: 6px 10px; font-size: 14px; }
             .top-bar .controls button .label-btn { display: none; } /* إخفاء النص في الجوال */
             .btn-item { font-size: 15px; padding: 12px 14px; }
@@ -272,11 +270,11 @@
 </head>
 <body>
     <div class="container">
-        <!-- ===== الشريط العلوي ===== -->
+        <!-- ===== الشريط العلوي (تم إزالة النص بجوار الشعار) ===== -->
         <div class="top-bar">
             <div class="logo-area">
                 <img src="https://raw.githubusercontent.com/yamksoft/bypass/master/img/logo-yamkrom-dot.png" alt="YAMKROM logo">
-                <span class="site-name" data-i18n="brand">YAMKROM</span>
+                <!-- تم حذف <span class="site-name"> بالكامل -->
             </div>
             <div class="controls">
                 <!-- زر تبديل الثيم -->
@@ -471,7 +469,8 @@
             <a href="https://github.com/yamksoft/bypass/blob/master/Smart_Switch_Mobile.apk" target="_blank">Smart_Switch_Mobile.apk</a>
         </div>
 
-        <div class="footer-note" data-i18n="footer">⭐ Bypass FRP · All shortcuts open in their respective apps</div>
+        <!-- ===== التذييل الجديد (حقوق الطبع والنشر) ===== -->
+        <div class="footer-copyright" data-i18n="copyright">© 2026 يمك روم— يمك سوفت. جميع الحقوق محفوظة.</div>
     </div>
 
     <script>
@@ -480,7 +479,6 @@
         // ============================================================
         const translations = {
             en: {
-                brand: 'YAMKROM',
                 main_title: 'YAMKROM BYPASS GOOGLE ACCOUNT 2026',
                 sub_title: 'Bypass FRP lock · Quick shortcuts for Android',
                 theme_dark: 'Dark',
@@ -490,7 +488,7 @@
                 open_other: 'Open other apps',
                 downloads_title: '📥 Direct downloads',
                 downloads_desc: 'Use the GitHub links below for the APK and XML files.',
-                footer: '⭐ Bypass FRP · All shortcuts open in their respective apps',
+                copyright: '© 2026 YAMKROM — YAMKSOFT. All rights reserved.',  // النص الجديد للإنجليزية
                 // أسماء التطبيقات (بالإنكليزية)
                 app_galaxy: 'Galaxy Store',
                 app_quicksearch: 'Quick Search Box',
@@ -526,8 +524,7 @@
                 app_oppo: 'OPPO Phone Clone'
             },
             ar: {
-                brand: 'يامكروم',
-                main_title: 'يامكروم - تخطي حساب جوجل 2026',
+                main_title: 'يمك روم - تخطي حساب جوجل 2026',
                 sub_title: 'تخطي قفل FRP · اختصارات سريعة لأندرويد',
                 theme_dark: 'داكن',
                 theme_light: 'فاتح',
@@ -536,7 +533,7 @@
                 open_other: 'فتح تطبيقات أخرى',
                 downloads_title: '📥 تحميل مباشر',
                 downloads_desc: 'استخدم روابط جيت هب أدناه لملفات APK و XML.',
-                footer: '⭐ تخطي FRP · جميع الاختصارات تفتح في تطبيقاتها',
+                copyright: '© 2026 يمك روم— يمك سوفت. جميع الحقوق محفوظة.',  // النص الجديد للعربية
                 // أسماء التطبيقات (بالعربية)
                 app_galaxy: 'متجر جالاكسي',
                 app_quicksearch: 'مربع البحث السريع',
@@ -633,7 +630,6 @@
             const themeLabel = document.getElementById('themeLabel');
             if (currentTheme === 'dark') {
                 themeIcon.textContent = '☀️';
-                // النص يعتمد على اللغة الحالية
                 themeLabel.textContent = translations[currentLang].theme_light || 'Light';
             } else {
                 themeIcon.textContent = '🌙';
